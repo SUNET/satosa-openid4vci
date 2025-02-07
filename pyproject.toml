@@ -1,25 +1,26 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
-]
+requires = ["setuptools>=61.2"]
 build-backend = "setuptools.build_meta"
 
-[metadata]
+[project]
 name = "satosa_openid4vci"
 version = "0.1.0"
-author = "Roland Hedberg"
-author_email = "roland@catalogix.se"
+authors = [{name = "Roland Hedberg", email = "roland@catalogix.se"}]
 description = "Credential Issuer as SATOSA front end"
-long_description = "file: README.md"
-long_description_content_type = "text/markdown"
-url = "https://github.com/rohe/openid4vci"
-license = "Apache-2.0"
+urls = {Homepage = "https://github.com/SUNET/openid4vci"}
+license = {text = "Apache 2.0"}
 classifiers =[
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent"
 ]
+dependencies = [
+    "openid4v @ git+https://github.com/SUNET/openid4v.git",
+    "satosa>=8.0.0",
+]
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
 
 [options]
 package_dir = "src"
@@ -44,4 +45,11 @@ branch = true
 exclude_lines = [
     "pragma: no cover",
     "raise NotImplementedError",
+]
+
+[project.optional-dependencies]
+test = [
+    "fedservice @ git+https://github.com/SUNET/fedservice.git",
+    "idpysdjwt @ git+https://github.com/SUNET/idpy-sdjwt.git",
+    "satosa-idpyop @ git+https://github.com/SUNET/satosa-idpy.git"
 ]

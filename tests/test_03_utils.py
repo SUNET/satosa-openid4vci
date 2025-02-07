@@ -3,7 +3,7 @@ import os
 import shutil
 from typing import Optional
 
-from fedservice.keyjar import import_jwks
+from idpyoidc.key_import import import_jwks
 import pytest
 from cryptojwt.key_jar import init_key_jar
 from idpyoidc.client.defaults import DEFAULT_KEY_DEFS
@@ -14,7 +14,6 @@ from idpyoidc.server.authn_event import create_authn_event
 from idpyoidc.server.util import execute
 from openid4v.openid_credential_issuer import OpenidCredentialIssuer
 from satosa_idpyop.core import ExtendedContext
-from satosa_idpyop.utils import IdpyOPUtils
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
@@ -152,7 +151,6 @@ class TestPersistence(object):
 
         storage = execute(STORE_CONF)
         self.app = App(storage=storage)
-        self.utils = IdpyOPUtils(self.app)
 
         self.app.server = OpenidCredentialIssuer(SERVER_CONF)
         self.session_manager = self.app.server.context.session_manager
