@@ -409,5 +409,21 @@ config:
                             body:
                               credential_type: sdjwt
                               document_type: PDA1
+                      ElmCredential:
+                        class: openid4v.openid_credential_issuer.credential_constructor.authentic_source.CredentialConstructor
+                        kwargs:
+                            url: http://vc-interop-1.sunet.se/api/v1/credential
+                            jwks_url: http://vc-interop-1.sunet.se/api/v1/credential/.well-known/jwks
+                            body:
+                              credential_type: sdjwt
+                              document_type: Elm
+                      MicroCredential:
+                        class: openid4v.openid_credential_issuer.credential_constructor.authentic_source.CredentialConstructor
+                        kwargs:
+                            url: http://vc-interop-1.sunet.se/api/v1/credential
+                            jwks_url: http://vc-interop-1.sunet.se/api/v1/credential/.well-known/jwks
+                            body:
+                              credential_type: sdjwt
+                              document_type: Microcredential
               template_dir: template
               session_management: false
