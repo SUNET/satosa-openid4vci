@@ -432,6 +432,6 @@ config:
                             jwks_url: http://vc-interop-1.sunet.se/api/v1/credential/.well-known/jwks
                             body:
                               credential_type: sdjwt
-                              document_type: Microcredential
+                              document_type: MicroCredential
               template_dir: template
               session_management: false
